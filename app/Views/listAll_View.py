@@ -1,6 +1,7 @@
 from PyQt4.Qt import *
 from PyQt4 import *
 from app.Helpers.Table_Helper import *
+from app.Controllers.Clients_Controller import *
 
 class listAll_View(QMainWindow):
     
@@ -67,6 +68,7 @@ class listAll_View(QMainWindow):
         self.addClient = QtGui.QAction(self)
         self.addClient.setText(QtGui.QApplication.translate("MainWindow", "Client", None, QtGui.QApplication.UnicodeUTF8))
         self.addClient.setObjectName(("addClient"))
+        self.addClient.triggered.connect(Clients_Controller.addClient())
         self.addEmployee = QtGui.QAction(self)
         self.addEmployee.setText(QtGui.QApplication.translate("MainWindow", "Employee", None, QtGui.QApplication.UnicodeUTF8))
         self.addEmployee.setObjectName(("addEmployee"))
@@ -80,7 +82,7 @@ class listAll_View(QMainWindow):
         self.actionNo_Help.setText(QtGui.QApplication.translate("MainWindow", "No Help!", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNo_Help.setObjectName(("actionNo_Help"))
         self.menuAdd.addAction(self.addClient)
-        self.menuAdd.addAction(self.addEmployee)
+        self.menuAdd.addAction(self.addEmplClioyee)
         self.menuHelp.addAction(self.actionNo_Help)
         self.menubar.addAction(self.menuAdd.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
@@ -93,9 +95,4 @@ class listAll_View(QMainWindow):
         labelFooter.move(60,280)
         self.setGeometry(300, 300, 360, 300)
         self.setWindowTitle('Puteiro manager')    
-        self.show()
-    def doit(self):
-        print "Opening a new popup window..."
-        self.w = popup_View()
-        self.w.setGeometry(QRect(100, 100, 400, 200))
-        self.w.show()
+        self.show()        

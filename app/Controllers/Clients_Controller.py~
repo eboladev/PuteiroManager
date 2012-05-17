@@ -1,7 +1,7 @@
 import sys
 from PyQt4.Qt import *
 from app.Models.Clients import *
-from ..Views import *
+from app.Views.listAll_View import *
 
 class Clients_Controller():
 	def __init__(self):

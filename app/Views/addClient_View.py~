@@ -1,0 +1,5 @@
+class addClient_View(QWidget):
+    def __init__(self):
+        super(addClient_View, self).__init__()
+        self.initUI(data)
+    def initUI(self):

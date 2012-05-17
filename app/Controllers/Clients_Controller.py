@@ -14,3 +14,7 @@ class Clients_Controller():
 		app = QApplication(sys.argv)
 		v = listAll_View(self.__m.find(cod))
 		sys.exit(app.exec_())
+	def addClient(self):
+		app = QApplication(sys.argv)
+		v = addClient_View()
+		sys.exit(app.exec_())
