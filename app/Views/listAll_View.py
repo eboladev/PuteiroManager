@@ -1,15 +1,15 @@
 from PyQt4.Qt import *
 from PyQt4 import *
 from app.Helpers.Table_Helper import *
-from app.Controllers.Clients_Controller import *
+#from app.Controllers.Clients_Controller import *
 
 class listAll_View(QMainWindow):
     
-    def __init__(self, data):
+    def __init__(self, controller, data):
         super(listAll_View, self).__init__()
-        self.initUI(data)
+        self.initUI(controller, data)
         
-    def initUI(self, data):
+    def initUI(self, controller, data):
         self.centralwidget = QtGui.QWidget(self)
         self.centralwidget.setObjectName(("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
@@ -68,7 +68,8 @@ class listAll_View(QMainWindow):
         self.addClient = QtGui.QAction(self)
         self.addClient.setText(QtGui.QApplication.translate("MainWindow", "Client", None, QtGui.QApplication.UnicodeUTF8))
         self.addClient.setObjectName(("addClient"))
-        self.addClient.triggered.connect(Clients_Controller.addClient())
+        #self.addClient.triggered.connect()
+        self.addClient.triggered.connect(self.doit)
         self.addEmployee = QtGui.QAction(self)
         self.addEmployee.setText(QtGui.QApplication.translate("MainWindow", "Employee", None, QtGui.QApplication.UnicodeUTF8))
         self.addEmployee.setObjectName(("addEmployee"))
@@ -82,7 +83,7 @@ class listAll_View(QMainWindow):
         self.actionNo_Help.setText(QtGui.QApplication.translate("MainWindow", "No Help!", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNo_Help.setObjectName(("actionNo_Help"))
         self.menuAdd.addAction(self.addClient)
-        self.menuAdd.addAction(self.addEmplClioyee)
+        self.menuAdd.addAction(self.addEmployee)
         self.menuHelp.addAction(self.actionNo_Help)
         self.menubar.addAction(self.menuAdd.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
@@ -95,4 +96,8 @@ class listAll_View(QMainWindow):
         labelFooter.move(60,280)
         self.setGeometry(300, 300, 360, 300)
         self.setWindowTitle('Puteiro manager')    
-        self.show()        
+        self.show()    
+    def doit(self):
+        import app.Controllers.Clients_Controller as cc
+        self.w = cc.Clients_Controller()
+        self.w.addClient()

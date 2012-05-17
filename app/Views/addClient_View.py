@@ -1,9 +1,13 @@
+from PyQt4.Qt import *
+from PyQt4 import *
+
 class addClient_View(QWidget):
     def __init__(self):
         super(addClient_View, self).__init__()
         self.initUI()
     def initUI(self):
-		self.gridLayout_2 = QtGui.QGridLayout(self)
+        print "init"
+        self.gridLayout_2 = QtGui.QGridLayout(self)
         self.gridLayout_2.setObjectName(("gridLayout_2"))
         self.addClientName = QtGui.QHBoxLayout()
         self.addClientName.setObjectName(("addClientName"))
@@ -44,3 +48,7 @@ class addClient_View(QWidget):
         self.addClientButton.setObjectName(("addClientButton"))
         self.horizontalLayout.addWidget(self.addClientButton)
         self.gridLayout_2.addLayout(self.horizontalLayout, 3, 0, 1, 1)
+        self.setGeometry(300, 300, 360, 300)
+        self.setWindowTitle('Puteiro manager')
+        print "before Show inside"    
+        self.show()  
