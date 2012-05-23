@@ -1,13 +1,13 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
 
 import sys
-from app.Controllers.Clients_Controller import *
 
-def main():
-	c = Clients_Controller()
-	c.listAll()
-	#c.listOne(2)
+def main(args):
+	import Bootstrap as app
+	global app
+	app = app.Bootstrap(args)
+	app.exec_()
 
-if __name__ == '__main__':
-	main()
+if __name__ == "__main__":
+	main(sys.argv)
