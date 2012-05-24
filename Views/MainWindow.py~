@@ -1,24 +1,6 @@
 import sys
 from PyQt4 import *
 
-class MyTable(Qt.QTableWidget):
-	def __init__(self, parent, thestruct, labels):
-		Qt.QTableWidget.__init__(self, parent)
-		self.setColumnCount(len(thestruct[0]))
-		self.setRowCount(len(thestruct))
-		self.setHorizontalHeaderLabels(labels)	
-		self.data = thestruct
-		self.setmydata()
-	def setmydata(self):
-		n = 0
-		for person in self.data:
-			m = 0
-			for item in person:
-				newitem = Qt.QTableWidgetItem(str(item))
-				self.setItem(n, m, newitem)
-				m += 1
-			n += 1
-
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:

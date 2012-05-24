@@ -1,4 +1,6 @@
 from PyQt4 import *
+import Models.Clients as c
+
 class MainController():
 	def __init__(self):		
 		import Views.MainWindow as mainWindow
@@ -8,6 +10,19 @@ class MainController():
 		self.main.addClient.triggered.connect(self.addClient)
 		self.main.addEmployee.triggered.connect(self.addEmployee)
 		self.main.show()
+		
+		
+		headers = ["ID","Nome","Idade"]
+		
+		clients = [[1,"Guilherme",20], [2,"Marcelo",21], [3,"Cliente",20]] 
+		clientModel = c.TableModel(clients,headers)
+		self.main.clientTableView.setModel(clientModel)
+		
+		employee = [[10,"Vadia",23], [20,"Puta",24], [24,"Paulista",24],["12+12","Victor",24]] 
+		employeeModel = c.TableModel(employee,headers)
+		self.main.employeeTableView.setModel(employeeModel)
+		
+		
 	def doit(self):
 		print "Opening a new popup window..."
 		import Views.PopUp as popUp

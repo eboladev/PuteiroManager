@@ -42,7 +42,7 @@ class MainWindow(Qt.QMainWindow):
 		self.employeeTab.setObjectName(_fromUtf8("employeeTab"))
 		self.gridLayout_3 = QtGui.QGridLayout(self.employeeTab)
 		self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
-		self.employeeTableView = MyTable(self, data, ['ID', 'Nome', 'Idade'])
+		self.employeeTableView = QtGui.QTableView()
 		self.employeeTableView.setObjectName(_fromUtf8("employeeTableView"))
 		self.gridLayout_3.addWidget(self.employeeTableView, 0, 0, 1, 1)
 		self.tabWidget.addTab(self.employeeTab, _fromUtf8(""))
@@ -81,12 +81,11 @@ class MainWindow(Qt.QMainWindow):
 		self.menuHelp.addAction(self.actionNo_Help)
 		self.menubar.addAction(self.menuAdd.menuAction())
 		self.menubar.addAction(self.menuHelp.menuAction())
-		print "blasaa"
 		self.retranslateUi(self)
 		self.tabWidget.setCurrentIndex(0)
 		QtCore.QMetaObject.connectSlotsByName(self)
 
 	def retranslateUi(self, MainWindow):
 		self.tabWidget.setTabText(self.tabWidget.indexOf(self.clientTab), QtGui.QApplication.translate("MainWindow", "Client", None, QtGui.QApplication.UnicodeUTF8))
-		self.tabWidget.setTabText(self.tabWidget.indexOf(self.employeeTab), QtGui.QApplication.translate("MainWindow", "Employee", None, QtGui.QApplication.UnicodeUTF8))
+		self.tabWidget.setTabText(self.tabWidget.indexOf(self.employeeTab), QtGui.QApplication.translate("MainWindow", "Girls", None, QtGui.QApplication.UnicodeUTF8))
 
