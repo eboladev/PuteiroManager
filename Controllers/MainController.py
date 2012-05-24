@@ -2,7 +2,8 @@ from PyQt4 import *
 class MainController():
 	def __init__(self):		
 		import Views.MainWindow as mainWindow
-		self.main = mainWindow.MainWindow()
+		data = None
+		self.main = mainWindow.MainWindow(data)
 		#self.main.btn1.clicked.connect(self.doit)
 		self.main.addClient.triggered.connect(self.addClient)
 		self.main.addEmployee.triggered.connect(self.addEmployee)

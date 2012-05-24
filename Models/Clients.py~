@@ -1,0 +1,5 @@
+import sqlite3
+import sys
+
+class Clients():
+	self._table = 'clients'

@@ -14,12 +14,12 @@ class MainController():
 		self.w.setGeometry(150, 150, 400, 200)
 		self.w.show()
 	def addClient(self):
-		import Views.AddClient as popUp
+		import Views.addClient as popUp
 		self.w = popUp.AddClient()
 		self.w.show()
 		print "Opening a new popup window..."
 	def addEmployee(self):
-		import Views.AddEmployee as popUp
-		self.w = popUp.AddClient()
+		import Views.addEmployee as popUp
+		self.w = popUp.AddEmployee()
 		self.w.show()
 		print "Opening a new popup window..."
