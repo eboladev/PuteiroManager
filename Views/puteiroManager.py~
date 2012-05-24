@@ -91,7 +91,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
-        #QtCore.QObject.connect(self.addClient, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.close)
+        QtCore.QObject.connect(self.addClient, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

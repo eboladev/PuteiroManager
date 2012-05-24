@@ -14,7 +14,7 @@ try:
 except AttributeError:
     _fromUtf8 = lambda s: s
 
-class AddEmployee(QtGui.QDialog):
+class AddClient(QtGui.QDialog):
     def __init__(self, *args):
 		QtGui.QDialog.__init__(self, *args)
 		self.setObjectName(_fromUtf8("Dialog"))
