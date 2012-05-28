@@ -1,5 +1,5 @@
 from PyQt4 import *
-import Models.Clients as c
+import Models.TableModel as c
 
 class MainController():
 	def __init__(self):		
