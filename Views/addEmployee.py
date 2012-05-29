@@ -7,7 +7,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt4 import QtCore, QtGui
+from PyQt4 import *
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -15,6 +15,10 @@ except AttributeError:
     _fromUtf8 = lambda s: s
 
 class AddEmployee(QtGui.QDialog):
+    
+    nameEmployee = None
+    ageEmployee = None
+    
     def __init__(self, *args):
 		QtGui.QDialog.__init__(self, *args)
 		self.setObjectName(_fromUtf8("Dialog"))
@@ -63,3 +67,17 @@ class AddEmployee(QtGui.QDialog):
 		QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), self.accept)
 		QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), self.reject)
 		QtCore.QMetaObject.connectSlotsByName(self)
+    
+    def accept(self):
+        global nameEmployee
+        global ageEmployee
+        nameEmployee = self.nameLineEdit.text()
+        ageEmployee = self.lineEdit_2.text()
+        #print "accepted: " + self.name + " - " + self.age 
+        self.close()
+    
+    def getName(self):
+        return nameEmployee
+    
+    def getAge(self):
+        return ageEmployee

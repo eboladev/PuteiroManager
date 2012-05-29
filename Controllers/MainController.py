@@ -6,7 +6,6 @@ class MainController():
 		import Views.MainWindow as mainWindow
 		data = None
 		self.main = mainWindow.MainWindow(data)
-		#self.main.btn1.clicked.connect(self.doit)
 		self.main.addClient.triggered.connect(self.addClient)
 		self.main.addEmployee.triggered.connect(self.addEmployee)
 		self.main.show()
@@ -22,20 +21,20 @@ class MainController():
 		employeeModel = c.TableModel(employee,headers)
 		self.main.employeeTableView.setModel(employeeModel)
 		
-		
-	def doit(self):
-		print "Opening a new popup window..."
-		import Views.PopUp as popUp
-		self.w = popUp.PopUp()
-		self.w.setGeometry(150, 150, 400, 200)
-		self.w.show()
 	def addClient(self):
 		import Views.addClient as popUp
 		self.w = popUp.AddClient()
 		self.w.show()
-		print "Opening a new popup window..."
+		if self.w.exec_():
+			pass
+		print "C: " + self.w.getName() + " - " + self.w.getAge()
+			
+			
+
 	def addEmployee(self):
 		import Views.addEmployee as popUp
 		self.w = popUp.AddEmployee()
 		self.w.show()
-		print "Opening a new popup window..."
+		if self.w.exec_():
+			pass
+		print "E: " + self.w.getName() + " - " + self.w.getAge()
