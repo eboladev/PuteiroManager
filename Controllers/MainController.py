@@ -11,16 +11,16 @@ class MainController():
 		self.main.addEmployee.triggered.connect(self.addEmployee)
 		self.main.show()
 		
-		headers = ["ID","Nome","Idade"]
+		self.headers = ["ID","Nome","Idade"]
 		
 		self.database = db.DefaultModel()
 		
 		clients = self.database.selectAll("clients") 
-		clientModel = c.TableModel(clients,headers)
+		clientModel = c.TableModel(clients,self.headers)
 		self.main.clientTableView.setModel(clientModel)
 		
 		employee = self.database.selectAll("girls") 
-		employeeModel = c.TableModel(employee,headers)
+		employeeModel = c.TableModel(employee,self.headers)
 		self.main.employeeTableView.setModel(employeeModel)
 		
 	def addClient(self):
@@ -29,8 +29,12 @@ class MainController():
 		self.w.show()
 		if self.w.exec_():
 			pass
-		print "C: " + self.w.getName() + " - " + self.w.getAge()
 		self.database.insertClient(self.w.getName(),self.w.getAge())
+		
+		clients = self.database.selectAll("clients") 
+		clientModel = c.TableModel(clients,self.headers)
+		self.main.clientTableView.setModel(clientModel)
+		
 			
 			
 
@@ -40,4 +44,8 @@ class MainController():
 		self.w.show()
 		if self.w.exec_():
 			pass
-		print "E: " + self.w.getName() + " - " + self.w.getAge()
+		self.database.insertGirls(self.w.getName(),self.w.getAge())
+		
+		girls = self.database.selectAll("girls") 
+		girlsModel = c.TableModel(girls,self.headers)
+		self.main.employeeTableView.setModel(girlsModel)

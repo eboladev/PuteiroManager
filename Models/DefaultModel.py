@@ -27,13 +27,20 @@ class DefaultModel():
 #		return fetched
 	
 	def insertClient(self, cName, cAge):
-		print cName + " - " + cAge
 		con = sqlite3.connect('banco.db')
 		self.__c = con.cursor()
-		self.__c.execute('''insert into clients (id,name,age) values (4,'Joao', 50);''')
-		#self.__c.execute('''insert into clients (name, age) values (?,?);''',(cName,cAge,))
-		#self.__c.execute('''insert into clients (name, age) values ("'''+cName+'''",'''+cAge+''');''')
+		self.__c.execute('''insert into clients (name, age) values (?,?);''',(cName,cAge,))
 		fetched = self.__c.fetchall()
+		con.commit()
+		self.__c.close()
+		return fetched
+	
+	def insertGirls(self, gName, gAge):
+		con = sqlite3.connect('banco.db')
+		self.__c = con.cursor()
+		self.__c.execute('''insert into girls (name, age) values (?,?);''',(gName,gAge,))
+		fetched = self.__c.fetchall()
+		con.commit()
 		self.__c.close()
 		return fetched
 	

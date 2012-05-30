@@ -77,7 +77,7 @@ class AddEmployee(QtGui.QDialog):
         self.close()
     
     def getName(self):
-        return nameEmployee
+        return str(nameEmployee)
     
     def getAge(self):
-        return ageEmployee
+        return str(ageEmployee)
