@@ -29,7 +29,7 @@ class MainController():
 		self.w.show()
 		if self.w.exec_():
 			pass
-		#print "C: " + self.w.getName() + " - " + self.w.getAge()
+		print "C: " + self.w.getName() + " - " + self.w.getAge()
 		self.database.insertClient(self.w.getName(),self.w.getAge())
 			
 			

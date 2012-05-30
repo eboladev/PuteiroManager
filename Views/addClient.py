@@ -72,7 +72,7 @@ class AddClient(QtGui.QDialog):
         global name
         global age
         name = str(self.lineEdit.text())
-        age = int(self.lineEdit_2.text())
+        age = str(self.lineEdit_2.text())
         #print "accepted: " + self.name + " - " + self.age 
         self.close()
     

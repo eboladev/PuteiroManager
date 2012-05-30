@@ -57,7 +57,7 @@ class TableModel(QtCore.QAbstractTableModel):
                 return True
         return False
     
-    """
+    
     def insertRows(self, position, rows, parent = QtCore.QModelIndex()):
         self.beginInsertRows(parent, position, position + rows -1)
         for i in range(rows):
@@ -65,7 +65,7 @@ class TableModel(QtCore.QAbstractTableModel):
             self.__datas.insert(position, defaultValues)
         self.endInsertRows()
         return True
-    
+    """
     def insertColumns(self, position, columns, parent = QtCore.QModelIndex()):
         self.beginInsertColumns(parent, position, position + columns -1)
         rowCount = len(self.__datas)
