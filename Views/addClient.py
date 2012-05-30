@@ -71,8 +71,8 @@ class AddClient(QtGui.QDialog):
     def accept(self):
         global name
         global age
-        name = self.lineEdit.text()
-        age = self.lineEdit_2.text()
+        name = str(self.lineEdit.text())
+        age = int(self.lineEdit_2.text())
         #print "accepted: " + self.name + " - " + self.age 
         self.close()
     
